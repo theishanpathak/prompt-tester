@@ -141,8 +141,7 @@ MIT — do whatever you want with this code
 
 Building in public and sharing my AI learning journey:
 - **Portfolio**: [@theishanpathak](https://theishanpathak.com)
-- **GitHub**: [@theishanpathak](https://github.com/theishanpathak)
-- **LinkedIn**: [Connect with me](https://linkedin.com/in/yourprofile)
+- **LinkedIn**: [Connect with me](https://www.linkedin.com/in/ishan-pathak333/)
 
 ---
 
