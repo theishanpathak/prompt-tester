@@ -1,17 +1,62 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prompt Tester</title>
-
-    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
-    <script src="https://unpkg.com/alpinejs@3.12.0" defer></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body x-data="{loading : false}">
-<h1>Prompt Tester</h1>
-<p> Hello Prompt Tester Users</p>
+<body>
+<div class="container">
+    <h1>AI Prompt Tester</h1>
+
+    <!-- Error -->
+    <div th:if="${error}" class="error">
+        <div style="white-space: pre-wrap; line-height: 1.8;" th:utext="${error}"></div>
+    </div>
+
+    <!-- Response -->
+    <div th:if="${response}" class="response">
+        <h3>Response</h3>
+        <div class="response-text" th:text="${response.aiResponse}"></div>
+        <div class="stats">
+            <span>Tokens: <strong th:text="${response.tokenCount}"></strong></span>
+            <span>Cost: <strong th:text="'$' + ${#numbers.formatDecimal(response.cost, 1, 6)}"></strong></span>
+            <span>Time: <strong th:text="${response.responseTimeMs} + 'ms'"></strong></span>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <form th:action="@{/submit}" th:object="${promptRequest}" method="post">
+        <div class="form-group">
+            <label for="systemPrompt">System Prompt</label>
+            <textarea id="systemPrompt" th:field="*{systemPrompt}" required></textarea>
+            <p>This sets the AI's behavior and personality</p>
+        </div>
+
+        <div class="form-group">
+            <label for="userMessage">User Message</label>
+            <textarea id="userMessage" th:field="*{userMessage}" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="temperature">Temperature: <span id="tempValue">0.7</span></label>
+            <input type="range" id="temperature" th:field="*{temperature}"
+                   min="0" max="2" step="0.1" value="0.7">
+            <p>Higher = more creative, Lower = more focused</p>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+        const temp = document.getElementById('temperature');
+        const tempValue = document.getElementById('tempValue');
+
+        temp.addEventListener('input', () => {
+            tempValue.textContent = parseFloat(temp.value).toFixed(1);
+        });
+    </script>
 </body>
 </html>
