@@ -15,9 +15,6 @@ RUN ./mvnw package -DskipTests
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 
-RUN addgroup --system spring  && --system spring --ingroup spring
-USER spring:spring
-
 COPY --from=build /app/target/app.jar app.jar
 EXPOSE 8080
 
