@@ -1,16 +1,17 @@
 # 🧪 AI Prompt Tester
 
-Test OpenAI prompts in real-time and see what they actually cost.
+Test OpenAI prompts and see what they *actually* cost — in real-time.
 
-Made by a broke college student learning AI integration with $5 of free OpenAI credit.
+Running on my entire $5 OpenAI credit. When it's gone, you get a random funny obituary for my budget.
 
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)
 ![Java](https://img.shields.io/badge/Java-17+-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen)
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-blue)
 
 ## 🚀 Try It Live
 
-**[Launch App](comning-soon)**
+**[Launch App](https://ai-prompt-tester-0jub.onrender.com/)**
 
 *Free while my credit lasts. When it runs out, you'll see a funny message and a link to clone this.*
 
@@ -33,9 +34,9 @@ All errors gracefully handled with humor instead of scary red text. Check `PageC
 ## ✨ Features
 
 - **Test System Prompts**: Shape AI behavior and personality
-- **Adjust Temperature**: Control creativity with a slider (0-2)
+- **Adjust Temperature**: (0 = boring robot, 2 = chaos mode)
 - **Real-time Metrics**: See exact token count, cost, and response time
-- **Cost Tracking**: Know exactly how much each request costs
+- **Cost Tracking**: Know exactly how much each request costs (down to $0.000001)
 - **Error Messages**: Get roasted when my credits run out (or any error occurs)
 - **Dark Mode UI**: Clean, comfortable interface for testing
 
@@ -53,6 +54,8 @@ Perfect for developers learning prompt engineering or building AI-powered applic
 - **Backend**: Spring Boot 3, Java 17
 - **Frontend**: Thymeleaf, CSS (dark mode)
 - **AI API**: OpenAI GPT-4o-mini
+- **Containerization:** Docker
+- **Deployment:** Render
 - **HTTP Client**: RestTemplate
 - **Vibes**: Broke college student energy ☕
 
