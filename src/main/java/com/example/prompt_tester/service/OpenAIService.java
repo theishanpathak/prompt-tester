@@ -86,7 +86,7 @@ public class OpenAIService {
 
             return List.of(
                     (Integer) usage.getOrDefault("prompt_tokens", 0),
-                    (Integer) usage.getOrDefault("completions_tokens", 0)
+                    (Integer) usage.getOrDefault("completion_tokens", 0)
             );
         }catch(Exception e){
             return List.of(0, 0);
