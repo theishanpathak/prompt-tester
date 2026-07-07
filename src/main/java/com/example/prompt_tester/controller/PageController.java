@@ -40,6 +40,7 @@ public class PageController {
 //            model.addAttribute("error", "Oops! " + e.getMessage());
 
             String errorMsg = e.getMessage().toLowerCase();
+            System.out.println(errorMsg);
 
             if (errorMsg.contains("quota") ||
                     errorMsg.contains("insufficient") ||
@@ -48,7 +49,11 @@ public class PageController {
 
                 // 😂 BROKE MODE: Random funny message
                 model.addAttribute("error", getRandomBrokeMessage());
-            } else {
+            }
+           else if(errorMsg.contains("i/o") || errorMsg.contains("post") ){
+                model.addAttribute("error", "Oops! Connection to the OpenAI failed");
+            }
+            else {
                 // Other errors: show normal message
                 model.addAttribute("error", "Oops! " + e.getMessage());
             }
